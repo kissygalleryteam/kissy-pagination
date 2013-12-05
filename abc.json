@@ -1,0 +1,11 @@
+{
+	"name": "kissy-pagination",
+	"version":"1.0",
+	"author":{
+		"name":"木中",
+		"email":"miclay@foxmail.com",
+		"page":"https://github.com/miclay"
+	},
+	"cover":"",
+	"desc":"KISSY组件-翻页功能"
+}

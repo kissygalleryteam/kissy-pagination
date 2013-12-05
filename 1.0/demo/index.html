@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Demo</title>
+<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.0/seed-min.js"></script>
+</head>
+<body>
+        
+<div id="demo-wrap">
+    <h2>KISSY Pagination DEMOs</h2>
+    <div id="demo-1">
+        <div id="demo-container-1" class="demo-con skin-tb"></div>
+        <div class="demo-detail">
+            <h3>默认参数调用</h3>
+            <p>new Pagination('demo-container-1');</p>
+            <div id="demo-log-1" class="demo-log">请点击页码</div>
+        </div>
+    </div>
+</div>
+
+<script>
+KISSY.config({
+    packages:[
+        {
+            name:"gallery",
+            path:"../../../",
+            tag:+new Date,
+            ignorePackageNameInUri:true,
+            debug:true,
+            charset:"utf-8"
+        }
+    ]
+});
+
+KISSY.use('dom, gallery/kissy-pagination/1.0/index',function(S, DOM, Pagination){
+        
+    var pagination2 = new Pagination('demo-container-2', {
+        currentPage: 7,
+        totalPage: 12,
+        firstPagesCount: 2,
+        preposePagesCount: 1,
+        postposePagesCount: 2,
+        lastPagesCount: 1
+    });
+
+    pagination2._init();
+
+    pagination2.on('switch', function(e) {
+            DOM.html('#demo-log-1', 'OK，你切换到了第' + e.toPage + '页');
+    });
+});
+                
+</script>
+</body>
+</html>

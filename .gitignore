@@ -1,0 +1,31 @@
+##### user ######
+node_modules
+dist
+.tmp
+.svn
+.sass-cache
+*.iml
+*.ipr
+*.iws
+*.swp
+
+##### system ######
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+
+##### IDE ######
+.project
+.settings
+.idea
+.idea/
+
+##### Packages ######
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
