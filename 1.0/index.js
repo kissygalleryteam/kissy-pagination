@@ -13,7 +13,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
   var attrs={
     /**
      * 属性：当前页数
-     * @type {number} 传入当前显示第几页
+     * @type {number} 传入当前显示第几页，默认值为1。
      */
     currentPage:{
       value:1
@@ -21,7 +21,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
     /**
      * 属性：总页数
-     * @type {number} 传入页码总数
+     * @type {number} 传入页码总数，默认值为10。
      */
     totalPage:{
       value:10
@@ -29,7 +29,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
     /**
      * 属性：样式表
-     * @type {string} 如果想引入自定义样式，可以把样式表URL配置到这里。
+     * @type {string} 如果想引入自定义样式，可以把样式表URL配置到这里。默认为组件自带样式。
      */
     styleSheet:{
       value:'../src/style.css'
@@ -37,7 +37,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
     /**
      * 属性：翻页器样式class前缀
-     * @type {string} 可以自定义class前缀，默认为“y-”
+     * @type {string} 可以自定义class前缀，默认为“y-”。
      */
     clsPrefix:{
       value:'y-'
@@ -197,7 +197,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
      * 获取当前所在页数
      * @return {number} 返回当前所在的页码数。
      */
-    currentPage:function(){
+    getCurrentPage:function(){
       return this.get('currentPage');
     },
 

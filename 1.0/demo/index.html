@@ -21,17 +21,138 @@ KISSY.config({
     ]
 });
 </script>
+<style>
+body{ padding: 10px; font-family: "microsoft yahei";}
+h2,h3,h4{padding-top: 15px;}
+pre{ background-color: #eee; padding: 10px; margin: 10px 0;}
+.p-log{ padding-top: 10px; color: #666;}
+</style>
 </head>
 <body>
         
 <h2>KISSY Pagination Demo</h2>
+
 <div id="demo-1">
-    <h3>默认参数调用</h3>
-    <p class="code">
-        new Pagination('#demo-1 .p-con');
-    </p>
+    <h3>活生生的大栗子</h3>
     <div class="p-con"></div>
     <div class="p-log"></div>
+</div>
+
+<div id="demo-1">
+    <h3>默认参数调用</h3>
+    <pre class="code">
+    new Pagination('#demo-1 .p-con').on('switch', function(e){
+        S.one('#demo-1 .p-log').html('当前跳转到了第'+e.targetPage+'页');
+    })
+    </pre>
+</div>
+
+<div id="demo-2">
+    <h3>自定义参数调用</h3>
+    <pre class="code">
+    var pagination= new Pagination('#demo-1 .p-con', {
+        currentPage: 2,
+        totalPage: 15
+    }).on('switch', function(e) {
+        S.one('#demo-1 .p-log').html('当前跳转到了第'+e.targetPage+'页');
+    });
+    </pre>
+
+    <h4>支持以下参数配置：</h4>
+    <pre>
+    {
+        /**
+         * 属性：当前页数
+         * @type {number} 传入当前显示第几页，默认值为1。
+         */
+        currentPage:1,
+
+        /**
+         * 属性：总页数
+         * @type {number} 传入页码总数，默认值为10。
+         */
+        totalPage:10,
+
+        /**
+         * 属性：样式表
+         * @type {string} 如果想引入自定义样式，可以把样式表URL配置到这里。默认为组件自带样式。
+         */
+        styleSheet:'http://',
+
+        /**
+         * 属性：翻页器样式class前缀
+         * @type {string} 可以自定义class前缀，默认为“y-”。
+         */
+        clsPrefix:'y-'
+    }
+    </pre>
+    
+    <h4>支持以下方法调用：</h4>
+    <pre>
+    /**
+     * 销毁pagination对象
+     * @return {boolean} 如果成功销毁则返回true，否则返回false。
+     */
+    destroy();
+    </pre>
+    <pre>
+    /**
+     * 获取当前所在页数
+     * @return {number} 返回当前所在的页码数。
+     */
+    getCurrentPage();
+    </pre>
+    <pre>
+    /**
+     * 显示页码
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    show();
+    </pre>
+    <pre>
+    /**
+     * 隐藏页码
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    hide();
+    </pre>
+    <pre>
+    /**
+     * 跳转到指定页
+     * @param  {number} pageNum
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    gotoPage(pageNum);
+    </pre>
+    <pre>
+    /**
+     * 跳转到下一页
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    gotoNext();
+    </pre>
+    <pre>
+    /**
+     * 跳转到上一页
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    gotoPrev();
+    </pre>
+    <pre>
+    /**
+     * 跳转到第一页
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    gotoFirst();
+    </pre>
+    <pre>
+    /**
+     * 跳转到最后一页
+     * @return {object} 返回对象本身，可以链式调用。
+     */
+    gotoLast();
+    </pre>
+
 </div>
 
 <script>
@@ -40,9 +161,9 @@ KISSY.config({
  */
 KISSY.use('dom, gallery/kissy-pagination/1.0/index',function(S, DOM, Pagination){
         
-    var pagination= new Pagination('#demo-1 .p-con', {
-        currentPage: 2,
-        totalPage: 15
+    new Pagination('#demo-1 .p-con',{
+        currentPage:3,
+        totalPage:20
     }).on('switch', function(e) {
         S.one('#demo-1 .p-log').html('当前跳转到了第'+e.targetPage+'页');
     });
