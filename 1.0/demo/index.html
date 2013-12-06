@@ -162,7 +162,7 @@ pre{ background-color: #eee; padding: 10px; margin: 10px 0;}
 KISSY.use('dom, gallery/kissy-pagination/1.0/index',function(S, DOM, Pagination){
         
     new Pagination('#demo-1 .p-con',{
-        currentPage:3,
+        currentPage:1,
         totalPage:20
     }).on('switch', function(e) {
         S.one('#demo-1 .p-log').html('当前跳转到了第'+e.targetPage+'页');

@@ -59,8 +59,11 @@
 .y-pagination .p-prev,
 .y-pagination .p-next,
 .y-pagination .p-first,
-.y-pagination .p-last{ width: 66px;}
-.y-pagination .p-disable,
-.y-pagination .p-disable:hover{ 
-	cursor: default; color: #999;
+.y-pagination .p-last,
+.y-pagination .p-prev-disable,
+.y-pagination .p-next-disable{ width: 66px;}
+.y-pagination .p-prev-disable,
+.y-pagination .p-next-disable{ 
+	cursor: default; color: #ccc;
+	background-color: #efefef; border:solid 1px #efefef;
 }

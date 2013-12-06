@@ -58,6 +58,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
   }
 
   S.extend(Pagination, Base, /** @lends Pagination.prototype*/{
+    
     _init:function(){
       S.one('head').append('<link rel="stylesheet" href="'+this.get('styleSheet')+'">');
       this._render()
@@ -111,7 +112,11 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
       var html='<div class="'+that.get('clsPrefix')+'pagination">';
       
-      html+=that._getItemHtml('prev');
+      if(that.get('currentPage')==1){
+        html+=that._getItemHtml('prev-disable');
+      }else{
+        html+=that._getItemHtml('prev');
+      }
 
       if(totalPage<=7){
         
@@ -163,7 +168,12 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
       }
 
-      html+=that._getItemHtml('next');
+      if(that.get('currentPage')==totalPage){
+        html+=that._getItemHtml('next-disable');
+      }else{
+        html+=that._getItemHtml('next');
+      }
+      
       html+=that._getItemHtml('total');
       html+=that._getItemHtml('goto');
 
