@@ -1,3 +1,13 @@
 ## KISSY页码组件
 
-Demo：https://github.com/miclay/kissy-pagination/tree/master/1.0/demo
+* 版本：1.0
+* 教程：[http://gallery.kissyui.com/aaaa/1.0/guide/index.html](http://gallery.kissyui.com/aaaa/1.0/guide/index.html)
+* demo：[http://gallery.kissyui.com/aaaa/1.0/demo/index.html](http://gallery.kissyui.com/aaaa/1.0/demo/index.html)
+
+## changelog
+
+### V1.0
+
+    [!]
+
+

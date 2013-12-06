@@ -1,11 +1,15 @@
 {
-	"name": "kissy-pagination",
-	"version":"1.0",
-	"author":{
-		"name":"木中",
-		"email":"miclay@foxmail.com",
-		"page":"https://github.com/miclay"
-	},
-	"cover":"",
-	"desc":"KISSY组件-翻页功能"
+    "name": "kissy-pagination",
+    "comName":"Pagination",
+    "version": "1.0",
+    "desc": "KISSY组件--翻页功能",
+    "tag":"kissy-pagination",
+    "githubName":"miclay",
+    "author": {
+        "name": "木中",
+        "email": "jilei.liu@alibaba-inc.com",
+        "page": "https://github.com/miclay"
+    },
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
 }
