@@ -68,13 +68,36 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
     获取一个页码元素的html
      */
     _getItemHtml:function(pageNum,type){
+      var that=this;
       type=type||'default';
+      var preffix=this.get('clsPrefix');
+
       if(type=='current'){
-        return '<span class="current">'+pageNum+'</span>';
+        return '<span class="current p-elem">'+pageNum+'</span>';
+
       }else if(type=='etc'||pageNum=='etc'){
-        return '<span class="etc">…</span>';
+        return '<span class="etc p-elem">…</span>';
+
+      }else if(type=='total'||pageNum=='total'){
+        return '<span class="p-total p-elem">共'+that.get('totalPage')+'页</span>';
+
+      }else if(type=='prev'||pageNum=='prev'){
+        return '<a class="p-prev p-elem" href="javascript:void(0);">上一页</a>';
+
+      }else if(type=='prev-disable'||pageNum=='prev-disable'){
+        return '<span class="p-prev-disable p-elem">上一页</span>';
+      
+      }else if(type=='next'||pageNum=='next'){
+        return '<a class="p-next p-elem" href="javascript:void(0);">下一页</a>';
+      
+      }else if(type=='next-disable'||pageNum=='next-disable'){
+        return '<span class="p-next-disable p-elem">下一页</span>';
+      
+      }else if(type=='goto'||pageNum=='goto'){
+        return '<span class="p-elem p-item-go">第<input class="p-ipt-go">页<a class="p-btn-go" href="javascript:void(0);">GO</a></span>';
+      
       }else{
-        return '<a class="'+this.get('clsPrefix')+'p-item" href="javascript:void(0);" data-page="'+pageNum+'">'+pageNum+'</a>';
+        return '<a class="p-item p-elem" href="javascript:void(0);" data-page="'+pageNum+'">'+pageNum+'</a>';
       }
     },
 
@@ -88,6 +111,8 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
       var html='<div class="'+that.get('clsPrefix')+'pagination">';
       
+      html+=that._getItemHtml('prev');
+
       if(totalPage<=7){
         
         for(var i=1;i<totalPage+1;i++){
@@ -138,6 +163,10 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
 
       }
 
+      html+=that._getItemHtml('next');
+      html+=that._getItemHtml('total');
+      html+=that._getItemHtml('goto');
+
       DOM.html(that.targetBox,html);
 
       return that;
@@ -150,7 +179,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
       var that=this;
 
       Event.delegate(that.targetBox,'click'
-        ,'.'+that.get('clsPrefix')+'p-item',function(e){
+        ,'.p-item',function(e){
 
         var currentItem=e.currentTarget,
             targetPage=DOM.attr(currentItem, 'data-page');
@@ -160,7 +189,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
       });
 
       Event.delegate(that.targetBox,'click'
-        ,'.'+that.get('clsPrefix')+'p-prev',function(e){
+        ,'.p-prev',function(e){
 
         that.gotoPrev();
 
@@ -168,9 +197,51 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
       });
 
       Event.delegate(that.targetBox,'click'
-        ,'.'+that.get('clsPrefix')+'p-next',function(e){
+        ,'.p-next',function(e){
 
         that.gotoNext();
+
+        e.preventDefault();
+      });
+
+      Event.delegate(that.targetBox,'click'
+        ,'.p-first',function(e){
+
+        that.gotoFirst();
+
+        e.preventDefault();
+      });
+
+      Event.delegate(that.targetBox,'click'
+        ,'.p-last',function(e){
+
+        that.gotoLast();
+
+        e.preventDefault();
+      });
+
+      var submitGo=function(){
+        var targetPage=that.targetBox.one('.p-ipt-go').val();
+        that.gotoPage(targetPage);
+      };
+
+      Event.delegate(that.targetBox,'click'
+        ,'.p-btn-go',function(e){
+
+        submitGo();
+
+        e.preventDefault();
+      });
+
+      Event.delegate(that.targetBox,'keyup'
+        ,'.p-ipt-go',function(e){
+
+        /*
+        回车键支持
+         */
+        if(e.keyCode==13){
+          submitGo();
+        }
 
         e.preventDefault();
       });
