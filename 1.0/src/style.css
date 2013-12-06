@@ -1,0 +1,42 @@
+.y-pagination:after{
+	content:"."; display:block; clear:both; 
+	visibility:hidden; height:0;
+}
+.y-pagination{ zoom:1;}
+.y-pagination a.y-p-item,
+.y-pagination .current,
+.y-pagination .etc{
+	display: inline-block;margin-right: 10px;
+	width: 22px; height: 22px; line-height: 22px;
+	vertical-align: middle; text-align: center;
+}
+.y-pagination a.y-p-item{ 
+	border: solid 1px #ccc; 
+	color: #336699; border-radius: 2px;
+}
+.y-pagination a.y-p-item:hover{ 
+	border-color: #336699; text-decoration: none;
+}
+.y-pagination .current{ 
+	border-color: #336699; background-color: #0099cc; 
+	color: #fff; cursor: default;
+}
+.y-pagination .etc{ 
+	font-family:simsun; color: #ccc; 
+	padding-right: 10px;
+}
+.y-pagination .btn-prev,
+.y-pagination .btn-next{ margin-right: 10px;}
+.y-pagination .btn-off,
+.y-pagination .btn-off:hover{ 
+	cursor: default; color: #999;
+}
+.y-pagination .ipt-go-page{ 
+	height: 22px; line-height: 22px; width: 40px; 
+	padding-right: 25px; 
+	background: url(../images/icon_enter.gif) right -999px no-repeat; 
+	margin: 0 10px;
+}
+.y-page-num .ipt-go-page:focus{ 
+	background-position: right center;
+}

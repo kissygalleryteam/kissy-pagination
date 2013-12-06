@@ -4,22 +4,10 @@
 <meta charset="utf-8"/>
 <title>Demo</title>
 <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.0/seed-min.js"></script>
-</head>
-<body>
-        
-<div id="demo-wrap">
-    <h2>KISSY Pagination DEMOs</h2>
-    <div id="demo-1">
-        <div id="demo-container-1" class="demo-con skin-tb"></div>
-        <div class="demo-detail">
-            <h3>默认参数调用</h3>
-            <p>new Pagination('demo-container-1');</p>
-            <div id="demo-log-1" class="demo-log">请点击页码</div>
-        </div>
-    </div>
-</div>
-
 <script>
+/*
+用于本地调试配置
+ */
 KISSY.config({
     packages:[
         {
@@ -32,25 +20,33 @@ KISSY.config({
         }
     ]
 });
+</script>
+</head>
+<body>
+        
+<h2>KISSY Pagination Demo</h2>
+<div id="demo-1">
+    <h3>默认参数调用</h3>
+    <p class="code">
+        new Pagination('#demo-1 .p-con');
+    </p>
+    <div class="p-con"></div>
+    <div class="p-log"></div>
+</div>
 
+<script>
+/*
+调用示例
+ */
 KISSY.use('dom, gallery/kissy-pagination/1.0/index',function(S, DOM, Pagination){
         
-    var pagination2 = new Pagination('demo-container-2', {
-        currentPage: 7,
-        totalPage: 12,
-        firstPagesCount: 2,
-        preposePagesCount: 1,
-        postposePagesCount: 2,
-        lastPagesCount: 1
+    var pagination= new Pagination('#demo-1 .p-con', {
+        currentPage: 2,
+        totalPage: 15
+    }).on('switch', function(e) {
+        S.one('#demo-1 .p-log').html('当前跳转到了第'+e.targetPage+'页');
     });
-
-    pagination2._init();
-
-    pagination2.on('switch', function(e) {
-            DOM.html('#demo-log-1', 'OK，你切换到了第' + e.toPage + '页');
-    });
-});
-                
+});                
 </script>
 </body>
 </html>
