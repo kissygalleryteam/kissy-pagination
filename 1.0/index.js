@@ -32,7 +32,7 @@ KISSY.add(function(S,Base,Node,Event,DOM) {
      * @type {string} 如果想引入自定义样式，可以把样式表URL配置到这里。默认为组件自带样式。
      */
     styleSheet:{
-      value:'../src/style.css'
+      value:'http://gallery.kissyui.com/kissy-pagination/1.0/src/style.css'
     },
 
     /**
