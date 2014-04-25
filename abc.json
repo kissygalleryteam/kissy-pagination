@@ -1,7 +1,7 @@
 {
     "name": "kissy-pagination",
     "comName":"Pagination",
-    "version": "1.0",
+    "version": "1.1",
     "desc": "KISSY组件--翻页功能",
     "tag":"kissy-pagination",
     "githubName":"miclay",
@@ -10,6 +10,8 @@
         "email": "jilei.liu@alibaba-inc.com",
         "page": "https://github.com/miclay"
     },
+	"flexComboPort":"8081",
+	"reserveServerPort":"8080",
     "type": "kissy-gallery",
     "type-url": "http://gallery.kissyui.com/guide"
 }

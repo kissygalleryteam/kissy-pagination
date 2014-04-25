@@ -140,22 +140,10 @@ pre{ background-color: #eee; padding: 10px; margin: 10px 0;}
 </div>
 
 <script>
-KISSY.config({
-    packages:[
-        {
-            name: "gallery/kissy-pagination",
-            path: '../../',
-            charset: "utf-8",
-            ignorePackageNameInUri: true
-        }
-    ]
-});
-
 /*
 调用示例
  */
-KISSY.use('dom, gallery/kissy-pagination/1.0/index',function(S, DOM, Pagination){
-        
+KISSY.use('dom, gallery/kissy-pagination/1.1/index',function(S, DOM, Pagination){
     new Pagination('#demo-1 .p-con',{
         currentPage:1,
         totalPage:20
